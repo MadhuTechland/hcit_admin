@@ -13,6 +13,9 @@ use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\EventController;
 use App\Http\Controllers\Api\TestimonialController;
 use App\Http\Controllers\Api\ContactInfoController;
+use App\Http\Controllers\Api\AboutPageController;
+use App\Http\Controllers\Api\LeadershipMemberController;
+use App\Http\Controllers\Api\PartnerController;
 
 Route::prefix('v1')->group(function () {
 
@@ -57,6 +60,19 @@ Route::prefix('v1')->group(function () {
     // Contact Info Routes
     Route::get('/contact-info', [ContactInfoController::class, 'index']);
     Route::get('/contact-info/{type}', [ContactInfoController::class, 'getByType']);
+
+    // About Pages Routes
+    Route::get('/about-pages', [AboutPageController::class, 'index']);
+    Route::get('/about-pages/{slug}', [AboutPageController::class, 'show']);
+
+    // Leadership Members Routes
+    Route::get('/leadership-members', [LeadershipMemberController::class, 'index']);
+    Route::get('/leadership-members/{id}', [LeadershipMemberController::class, 'show']);
+
+    // Partners Routes
+    Route::get('/partners', [PartnerController::class, 'index']);
+    Route::get('/partners/featured', [PartnerController::class, 'featured']);
+    Route::get('/partners/{slug}', [PartnerController::class, 'show']);
 
     // Protected Admin Routes (for Admin panel - will add auth later)
     Route::prefix('admin')->group(function () {

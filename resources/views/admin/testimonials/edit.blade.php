@@ -1,18 +1,18 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Edit News')
-@section('page-title', 'Edit News')
+@section('title', 'Edit Testimonial')
+@section('page-title', 'Edit Testimonial')
 
 @section('breadcrumb')
     <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-    <li class="breadcrumb-item"><a href="{{ route('admin.news.index') }}">News</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('admin.testimonials.index') }}">Testimonials</a></li>
     <li class="breadcrumb-item active">Edit</li>
 @endsection
 
 @section('content')
-<form action="{{ route('admin.news.update', $news->id) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('admin.testimonials.update', $testimonial->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
-    @include('admin.news.form', ['news' => $news])
+    @include('admin.testimonials.form', ['testimonial' => $testimonial])
 </form>
 @endsection

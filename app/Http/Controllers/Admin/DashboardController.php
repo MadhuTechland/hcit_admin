@@ -19,7 +19,7 @@ class DashboardController extends Controller
             'published_blogs' => Blog::where('status', 'published')->count(),
             'draft_blogs' => Blog::where('status', 'draft')->count(),
             'total_services' => Service::count(),
-            'active_services' => Service::where('status', 'active')->count(),
+            'active_services' => Service::where('is_active', true)->count(),
             'total_hero_sections' => HeroSection::count(),
             'total_categories' => BlogCategory::count(),
             'total_tags' => BlogTag::count(),

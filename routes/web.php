@@ -14,6 +14,9 @@ use App\Http\Controllers\Admin\ProductSectionController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\ContactInfoController;
+use App\Http\Controllers\Admin\AboutPageController;
+use App\Http\Controllers\Admin\LeadershipMemberController;
+use App\Http\Controllers\Admin\PartnerController;
 
 // Frontend route (placeholder - your React app will handle this)
 Route::get('/', function () {
@@ -73,6 +76,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('events', EventController::class);
     Route::resource('testimonials', TestimonialController::class);
     Route::resource('contact-info', ContactInfoController::class);
+
+    // About HC IT Management
+    Route::resource('about-pages', AboutPageController::class);
+    Route::resource('leadership-members', LeadershipMemberController::class);
+    Route::resource('partners', PartnerController::class);
 
     // Placeholder routes for other resources (to be implemented)
     Route::get('/blog-categories', function () {
