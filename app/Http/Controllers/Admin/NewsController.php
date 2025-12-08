@@ -32,7 +32,7 @@ class NewsController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'published_date' => 'nullable|date',
             'author' => 'nullable|string|max:255',
-            'is_active' => 'boolean',
+            'is_active' => 'nullable|boolean',
             'order' => 'nullable|integer',
         ]);
 
@@ -69,7 +69,7 @@ class NewsController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'published_date' => 'nullable|date',
             'author' => 'nullable|string|max:255',
-            'is_active' => 'boolean',
+            'is_active' => 'nullable|boolean',
             'order' => 'nullable|integer',
         ]);
 

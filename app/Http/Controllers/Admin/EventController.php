@@ -31,7 +31,7 @@ class EventController extends Controller
             'event_date' => 'nullable|date',
             'author' => 'nullable|string|max:255',
             'link' => 'nullable|string|max:255',
-            'is_active' => 'boolean',
+            'is_active' => 'nullable|boolean',
             'order' => 'nullable|integer',
         ]);
 
@@ -67,7 +67,7 @@ class EventController extends Controller
             'event_date' => 'nullable|date',
             'author' => 'nullable|string|max:255',
             'link' => 'nullable|string|max:255',
-            'is_active' => 'boolean',
+            'is_active' => 'nullable|boolean',
             'order' => 'nullable|integer',
         ]);
 
