@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\CaseStudyController;
@@ -17,6 +19,9 @@ use App\Http\Controllers\Admin\ContactInfoController;
 use App\Http\Controllers\Admin\AboutPageController;
 use App\Http\Controllers\Admin\LeadershipMemberController;
 use App\Http\Controllers\Admin\PartnerController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\PermissionController;
 
 // Frontend route (placeholder - your React app will handle this)
 Route::get('/', function () {
@@ -32,23 +37,44 @@ Route::get('/test', function () {
     return 'Routing is working! Laravel server is running correctly.';
 });
 
-// Test admin route - simplified
-Route::get('/admin-test', function () {
-    return 'Admin routing is working! Controller should work too.';
-});
-
 // ============================================
-// ADMIN PANEL ROUTES
+// ADMIN AUTHENTICATION ROUTES (No middleware)
 // ============================================
 
 Route::prefix('admin')->name('admin.')->group(function () {
+    // Login routes (guest only)
+    Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+});
 
-    // For now, we'll skip authentication to test the admin panel
-    // You can add authentication middleware later
+// ============================================
+// ADMIN PANEL ROUTES (Protected by middleware)
+// ============================================
+
+Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
 
     // Dashboard
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard', [DashboardController::class, 'index']);
+
+    // Profile Management
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::get('/profile/change-email', [ProfileController::class, 'showChangeEmailForm'])->name('profile.change-email');
+    Route::put('/profile/email', [ProfileController::class, 'updateEmail'])->name('profile.update-email');
+    Route::get('/profile/change-password', [ProfileController::class, 'showChangePasswordForm'])->name('profile.change-password');
+    Route::put('/profile/password', [ProfileController::class, 'updatePassword'])->name('profile.update-password');
+
+    // User Management
+    Route::resource('users', UserController::class);
+
+    // Roles Management
+    Route::resource('roles', RoleController::class);
+
+    // Permissions Management
+    Route::resource('permissions', PermissionController::class)->except(['show']);
 
     // Blog Management
     Route::resource('blogs', BlogController::class);
@@ -102,13 +128,4 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/media', function () {
         return redirect()->route('admin.dashboard')->with('error', 'Media Library coming soon!');
     })->name('media.index');
-
-    Route::get('/profile', function () {
-        return redirect()->route('admin.dashboard')->with('error', 'Profile management coming soon!');
-    })->name('profile');
-
-    // Logout placeholder
-    Route::post('/logout', function () {
-        return redirect()->route('admin.dashboard')->with('success', 'Logged out successfully!');
-    })->name('logout');
 });

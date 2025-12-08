@@ -14,6 +14,11 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('admin-assets/images/k_favicon_32x.png') }}">
 
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <!-- Picker css -->
     <link rel="stylesheet" href="{{ asset('admin-assets/libs/choices.js/public/assets/styles/choices.min.css') }}">
 
@@ -32,8 +37,14 @@
     <!-- Icons css -->
     <link href="{{ asset('admin-assets/css/icons.min.css') }}" rel="stylesheet" type="text/css">
 
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     <!-- App Css -->
     <link href="{{ asset('admin-assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css">
+
+    <!-- Elegant Admin Theme -->
+    <link href="{{ asset('admin-assets/css/elegant-admin.css') }}" rel="stylesheet" type="text/css">
 
     @stack('styles')
 

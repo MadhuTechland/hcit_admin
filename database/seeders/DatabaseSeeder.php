@@ -22,6 +22,16 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
+        // Seed Admin users
+        $this->call([
+            AdminSeeder::class,
+        ]);
+
+        // Seed Roles and Permissions
+        $this->call([
+            RolesAndPermissionsSeeder::class,
+        ]);
+
         // Seed CMS content
         $this->call([
             HeroSectionSeeder::class,
