@@ -31,7 +31,7 @@ class CaseStudyController extends Controller
             'content' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'published_date' => 'nullable|date',
-            'is_active' => 'nullable|boolean',
+            'is_active' => 'nullable',
             'order' => 'nullable|integer',
         ]);
 
@@ -66,7 +66,7 @@ class CaseStudyController extends Controller
             'content' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'published_date' => 'nullable|date',
-            'is_active' => 'nullable|boolean',
+            'is_active' => 'nullable',
             'order' => 'nullable|integer',
         ]);
 

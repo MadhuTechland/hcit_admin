@@ -31,7 +31,7 @@ class LeadershipMemberController extends Controller
             'email' => 'nullable|email|max:255',
             'linkedin_url' => 'nullable|url|max:255',
             'twitter_url' => 'nullable|url|max:255',
-            'is_active' => 'boolean',
+            'is_active' => 'nullable',
             'order' => 'nullable|integer',
         ]);
 
@@ -63,7 +63,7 @@ class LeadershipMemberController extends Controller
             'email' => 'nullable|email|max:255',
             'linkedin_url' => 'nullable|url|max:255',
             'twitter_url' => 'nullable|url|max:255',
-            'is_active' => 'boolean',
+            'is_active' => 'nullable',
             'order' => 'nullable|integer',
         ]);
 

@@ -28,7 +28,7 @@ class TestimonialController extends Controller
             'client_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'content' => 'required|string',
             'rating' => 'nullable|integer|min:1|max:5',
-            'is_active' => 'nullable|boolean',
+            'is_active' => 'nullable',
             'order' => 'nullable|integer',
         ]);
 
@@ -58,7 +58,7 @@ class TestimonialController extends Controller
             'client_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'content' => 'required|string',
             'rating' => 'nullable|integer|min:1|max:5',
-            'is_active' => 'nullable|boolean',
+            'is_active' => 'nullable',
             'order' => 'nullable|integer',
         ]);
 

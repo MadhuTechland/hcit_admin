@@ -32,7 +32,7 @@ class AboutPageController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'banner_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'meta_data' => 'nullable|json',
-            'is_active' => 'nullable|boolean',
+            'is_active' => 'nullable',
             'order' => 'nullable|integer',
         ]);
 
@@ -76,7 +76,7 @@ class AboutPageController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'banner_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'meta_data' => 'nullable|json',
-            'is_active' => 'nullable|boolean',
+            'is_active' => 'nullable',
             'order' => 'nullable|integer',
         ]);
 

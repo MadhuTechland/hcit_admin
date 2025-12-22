@@ -30,8 +30,8 @@ class PartnerController extends Controller
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp,svg|max:2048',
             'website_url' => 'nullable|url|max:255',
             'partner_type' => 'nullable|string|max:255',
-            'is_featured' => 'boolean',
-            'is_active' => 'boolean',
+            'is_featured' => 'nullable',
+            'is_active' => 'nullable',
             'order' => 'nullable|integer',
         ]);
 
@@ -66,8 +66,8 @@ class PartnerController extends Controller
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp,svg|max:2048',
             'website_url' => 'nullable|url|max:255',
             'partner_type' => 'nullable|string|max:255',
-            'is_featured' => 'boolean',
-            'is_active' => 'boolean',
+            'is_featured' => 'nullable',
+            'is_active' => 'nullable',
             'order' => 'nullable|integer',
         ]);
 

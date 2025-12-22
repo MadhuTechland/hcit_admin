@@ -26,7 +26,7 @@ class ContactInfoController extends Controller
             'label' => 'required|string|max:255',
             'value' => 'required|string',
             'icon' => 'nullable|string|max:255',
-            'is_active' => 'boolean',
+            'is_active' => 'nullable',
             'order' => 'nullable|integer',
         ]);
 
@@ -50,7 +50,7 @@ class ContactInfoController extends Controller
             'label' => 'required|string|max:255',
             'value' => 'required|string',
             'icon' => 'nullable|string|max:255',
-            'is_active' => 'boolean',
+            'is_active' => 'nullable',
             'order' => 'nullable|integer',
         ]);
 

@@ -46,7 +46,7 @@ class ProductSectionController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'background_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'additional_data' => 'nullable|json',
-            'is_active' => 'boolean',
+            'is_active' => 'nullable',
             'order' => 'nullable|integer',
         ]);
 
@@ -100,7 +100,7 @@ class ProductSectionController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'background_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'additional_data' => 'nullable|json',
-            'is_active' => 'boolean',
+            'is_active' => 'nullable',
             'order' => 'nullable|integer',
         ]);
 

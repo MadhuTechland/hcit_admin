@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\SettingsController;
 
 // Frontend route (placeholder - your React app will handle this)
 Route::get('/', function () {
@@ -121,9 +122,10 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
         return redirect()->route('admin.dashboard')->with('error', 'Hero Sections management coming soon!');
     })->name('hero-sections.index');
 
-    Route::get('/settings', function () {
-        return redirect()->route('admin.dashboard')->with('error', 'Settings management coming soon!');
-    })->name('settings.index');
+    // Settings Management
+    Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
+    Route::put('/settings', [SettingsController::class, 'update'])->name('settings.update');
+    Route::post('/settings/delete-image', [SettingsController::class, 'deleteImage'])->name('settings.delete-image');
 
     Route::get('/media', function () {
         return redirect()->route('admin.dashboard')->with('error', 'Media Library coming soon!');

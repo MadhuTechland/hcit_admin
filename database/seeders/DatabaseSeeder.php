@@ -38,5 +38,10 @@ class DatabaseSeeder extends Seeder
             ServiceSeeder::class,
             BlogSeeder::class,
         ]);
+
+        // Seed Site Settings
+        $this->call([
+            SettingsSeeder::class,
+        ]);
     }
 }

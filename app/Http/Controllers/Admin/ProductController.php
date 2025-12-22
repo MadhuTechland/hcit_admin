@@ -36,7 +36,7 @@ class ProductController extends Controller
             'detail_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'shape_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'tags' => 'nullable|string',
-            'is_active' => 'boolean',
+            'is_active' => 'nullable',
             'order' => 'nullable|integer',
         ]);
 
@@ -84,7 +84,7 @@ class ProductController extends Controller
             'detail_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'shape_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'tags' => 'nullable|string',
-            'is_active' => 'boolean',
+            'is_active' => 'nullable',
             'order' => 'nullable|integer',
         ]);
 
