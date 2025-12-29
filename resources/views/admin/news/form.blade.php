@@ -138,7 +138,7 @@
                 <div class="mb-3">
                     <input type="file" class="form-control @error('image') is-invalid @enderror"
                            id="image" name="image" accept="image/*">
-                    <small class="form-text text-muted">Recommended size: 1200x630px</small>
+                    <div class="mt-1"><span class="badge bg-info text-white">Recommended: 1200x630px (16:9)</span></div>
                     @error('image')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror

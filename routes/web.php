@@ -86,19 +86,25 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
     Route::resource('industries', IndustryController::class);
 
     // Industry Sections (nested resource)
-    Route::resource('industries.sections', IndustrySectionController::class);
+    Route::resource('industries.sections', IndustrySectionController::class)->scoped([
+        'section' => 'id'
+    ]);
 
     // Services Management
     Route::resource('services', ServiceController::class);
 
     // Service Sections (nested resource)
-    Route::resource('services.sections', ServiceSectionController::class);
+    Route::resource('services.sections', ServiceSectionController::class)->scoped([
+        'section' => 'id'
+    ]);
 
     // Products Management
     Route::resource('products', ProductController::class);
 
     // Product Sections (nested resource)
-    Route::resource('products.sections', ProductSectionController::class);
+    Route::resource('products.sections', ProductSectionController::class)->scoped([
+        'section' => 'id'
+    ]);
 
     Route::resource('events', EventController::class);
     Route::resource('testimonials', TestimonialController::class);

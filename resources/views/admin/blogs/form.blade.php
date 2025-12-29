@@ -122,6 +122,7 @@
 
                 <div class="mb-3">
                     <input type="file" class="form-control" id="featured_image_upload" name="featured_image_upload" accept="image/*">
+                    <div class="mt-1"><span class="badge bg-info text-white">Recommended: 1200x630px (16:9)</span></div>
                 </div>
 
                 @if($blog && $blog->featured_image)

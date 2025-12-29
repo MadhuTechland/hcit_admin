@@ -174,6 +174,7 @@
                     <input type="file" class="form-control @error('image') is-invalid @enderror"
                            id="image" name="image" accept="image/*">
                     <small class="form-text text-muted">Used in navigation and listings</small>
+                    <div class="mt-1"><span class="badge bg-info text-white">Recommended: 400x300px</span></div>
                     @error('image')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -204,6 +205,7 @@
                     <input type="file" class="form-control @error('detail_image') is-invalid @enderror"
                            id="detail_image" name="detail_image" accept="image/*">
                     <small class="form-text text-muted">Main image on detail page</small>
+                    <div class="mt-1"><span class="badge bg-info text-white">Recommended: 800x600px</span></div>
                     @error('detail_image')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -234,6 +236,7 @@
                     <input type="file" class="form-control @error('shape_image') is-invalid @enderror"
                            id="shape_image" name="shape_image" accept="image/*">
                     <small class="form-text text-muted">Decorative shape or icon</small>
+                    <div class="mt-1"><span class="badge bg-info text-white">Recommended: 200x200px</span></div>
                     @error('shape_image')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror

@@ -10,9 +10,9 @@
                     <!-- Search Bar -->
                     <div class="d-none d-md-block">
                         <div class="position-relative">
-                            <input type="text" class="form-control form-control-sm ps-4" placeholder="Search..."
-                                   style="width: 280px; background: var(--elegant-gray-100); border-color: transparent;">
-                            <i class="bi bi-search position-absolute text-muted" style="left: 12px; top: 50%; transform: translateY(-50%); font-size: 0.85rem;"></i>
+                            <input type="text" class="form-control form-control-sm" placeholder="Search..."
+                                   style="width: 280px; padding-left: 36px; background: var(--elegant-gray-100); border-color: transparent;">
+                            <i class="bi bi-search position-absolute text-muted" style="left: 12px; top: 50%; transform: translateY(-50%); font-size: 0.85rem; pointer-events: none;"></i>
                         </div>
                     </div>
                 </div>

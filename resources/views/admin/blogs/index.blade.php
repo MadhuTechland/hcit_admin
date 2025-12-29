@@ -61,7 +61,7 @@
                         </thead>
                         <tbody id="blogsTableBody">
                             @forelse($blogs as $blog)
-                                <tr>
+                                <tr data-category-id="{{ $blog->category_id ?? '' }}" data-status="{{ $blog->status }}">
                                     <td>
                                         <div class="d-flex align-items-center">
                                             @if($blog->featured_image)
@@ -75,9 +75,15 @@
                                     </td>
                                     <td>
                                         @if($blog->category)
-                                            <span class="badge bg-soft-info text-info">{{ $blog->category->name }}</span>
+                                            @php
+                                                // Generate consistent color based on category ID
+                                                $colors = ['primary', 'success', 'info', 'warning', 'danger', 'secondary'];
+                                                $colorIndex = $blog->category->id % count($colors);
+                                                $color = $colors[$colorIndex];
+                                            @endphp
+                                            <span class="badge bg-{{ $color }}">{{ $blog->category->name }}</span>
                                         @else
-                                            <span class="badge bg-soft-secondary">Uncategorized</span>
+                                            <span class="badge bg-secondary">Uncategorized</span>
                                         @endif
                                     </td>
                                     <td>
@@ -176,17 +182,22 @@
     function filterBlogs() {
         const search = document.getElementById('searchInput').value.toLowerCase();
         const category = document.getElementById('categoryFilter').value;
-        const status = document.getElementById('statusFilter').value;
+        const status = document.getElementById('statusFilter').value.toLowerCase();
         const rows = document.querySelectorAll('#blogsTableBody tr');
 
         rows.forEach(row => {
+            // Skip empty rows (no data-category-id attribute)
+            if (!row.hasAttribute('data-category-id') && !row.hasAttribute('data-status')) {
+                return;
+            }
+
             const title = row.cells[0]?.textContent.toLowerCase() || '';
-            const categoryText = row.cells[1]?.textContent.toLowerCase() || '';
-            const statusText = row.cells[4]?.textContent.toLowerCase() || '';
+            const rowCategoryId = row.getAttribute('data-category-id') || '';
+            const rowStatus = row.getAttribute('data-status') || '';
 
             const matchesSearch = title.includes(search);
-            const matchesCategory = !category || categoryText.includes(category);
-            const matchesStatus = !status || statusText.includes(status);
+            const matchesCategory = !category || rowCategoryId === category;
+            const matchesStatus = !status || rowStatus === status;
 
             row.style.display = (matchesSearch && matchesCategory && matchesStatus) ? '' : 'none';
         });

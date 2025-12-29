@@ -161,9 +161,15 @@
                                     </td>
                                     <td>
                                         @if($blog->category)
-                                            <span class="badge bg-soft-info text-info">{{ $blog->category->name }}</span>
+                                            @php
+                                                // Generate consistent color based on category ID
+                                                $colors = ['primary', 'success', 'info', 'warning', 'danger', 'secondary'];
+                                                $colorIndex = $blog->category->id % count($colors);
+                                                $color = $colors[$colorIndex];
+                                            @endphp
+                                            <span class="badge bg-{{ $color }}">{{ $blog->category->name }}</span>
                                         @else
-                                            <span class="badge bg-soft-secondary">Uncategorized</span>
+                                            <span class="badge bg-secondary">Uncategorized</span>
                                         @endif
                                     </td>
                                     <td>

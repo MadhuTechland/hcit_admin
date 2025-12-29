@@ -68,7 +68,7 @@
                     <label for="client_image" class="form-label">Photo</label>
                     <input type="file" class="form-control @error('client_image') is-invalid @enderror"
                            id="client_image" name="client_image" accept="image/*">
-                    <small class="form-text text-muted">Recommended: 200x200px (square)</small>
+                    <div class="mt-1"><span class="badge bg-info text-white">Recommended: 200x200px (square)</span></div>
                     @error('client_image')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror

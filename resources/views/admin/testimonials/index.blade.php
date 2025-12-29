@@ -41,9 +41,9 @@
                     <table class="table table-hover align-middle mb-0">
                         <thead class="table-light">
                             <tr>
-                                <th scope="col">Title</th>
-                                <th scope="col">Rating</th>
                                 <th scope="col">Client</th>
+                                <th scope="col">Position</th>
+                                <th scope="col">Rating</th>
                                 <th scope="col">Created</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Order</th>
@@ -55,23 +55,31 @@
                                 <tr>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            @if($item->image)
-                                                <img src="{{ asset('storage/' . $item->image) }}" alt="" class="avatar-sm rounded me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                                            @if($item->client_image)
+                                                <img src="{{ asset('storage/' . $item->client_image) }}" alt="" class="avatar-sm rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                                            @else
+                                                <div class="avatar-sm rounded-circle bg-primary me-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                                    <span class="text-white fw-bold">{{ strtoupper(substr($item->client_name ?? 'U', 0, 1)) }}</span>
+                                                </div>
                                             @endif
                                             <div>
-                                                <h6 class="mb-0">{{ Str::limit($item->title, 50) }}</h6>
-                                                <small class="text-muted">{{ $item->slug }}</small>
+                                                <h6 class="mb-0">{{ $item->client_name ?? 'Unknown' }}</h6>
+                                                <small class="text-muted">{{ Str::limit($item->content, 50) }}</small>
                                             </div>
                                         </div>
                                     </td>
+                                    <td>{{ $item->client_title ?? '-' }}</td>
                                     <td>
                                         @if($item->rating)
-                                            <span class="badge bg-soft-info text-info">{{ $item->rating }}</span>
+                                            <span class="badge bg-warning text-dark">
+                                                @for($i = 1; $i <= 5; $i++)
+                                                    <i class="bi bi-star{{ $i <= $item->rating ? '-fill' : '' }}"></i>
+                                                @endfor
+                                            </span>
                                         @else
                                             <span class="text-muted">-</span>
                                         @endif
                                     </td>
-                                    <td>{{ $item->client_name ?? '-' }}</td>
                                     <td>{{ $item->created_at ? $item->created_at->format('M d, Y') : '-' }}</td>
                                     <td>
                                         @if($item->is_active)
