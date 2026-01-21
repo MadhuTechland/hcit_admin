@@ -40,8 +40,22 @@ class Blog extends Model
                      ->where('published_at', '<=', now());
     }
 
+    /**
+     * Use ID for Admin routes, but Slug for Frontend routes.
+     */
     public function getRouteKeyName()
     {
+        // If the URL starts with 'admin/', look for the ID
+        if (request()->is('admin/*')) {
+            return 'id';
+        }
+
+        // Otherwise, look for the Slug
         return 'slug';
-    }
+    }  
+
+    // public function getRouteKeyName()
+    // {
+    //     return 'slug';
+    // }
 }
