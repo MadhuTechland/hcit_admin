@@ -62,6 +62,17 @@ class Service extends Model
 
     public function getRouteKeyName()
     {
+        // For Admin panel, search by ID (e.g., /admin/services/18/sections)
+        if (request()->is('admin/*')) {
+            return 'id';
+        }
+
+        // For Frontend, search by Slug
         return 'slug';
-    }
+    }  
+
+    // public function getRouteKeyName()
+    // {
+    //     return 'slug';
+    // }
 }
