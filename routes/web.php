@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -55,6 +56,17 @@ Route::get('/storage-link', function () {
         return 'Symlink failed: ' . $e->getMessage() . '. Please create the link manually via SSH: ln -s ' . $target . ' ' . $link;
     }
 });
+
+// Serve storage files through PHP (Hostinger symlink workaround)
+Route::get('/storage/{path}', function (string $path) {
+    $filePath = storage_path('app/public/' . $path);
+
+    if (!file_exists($filePath)) {
+        abort(404);
+    }
+
+    return response()->file($filePath);
+})->where('path', '.*');
 
 // ============================================
 // ADMIN AUTHENTICATION ROUTES (No middleware)
