@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Testimonial extends Model
 {
@@ -20,6 +21,16 @@ class Testimonial extends Model
         'is_active' => 'boolean',
         'rating' => 'integer',
     ];
+
+    protected $appends = ['client_image_url'];
+
+    public function getClientImageUrlAttribute()
+    {
+        if ($this->client_image) {
+            return asset('storage/' . $this->client_image);
+        }
+        return null;
+    }
 
     public function scopeActive($query)
     {
