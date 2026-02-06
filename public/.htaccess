@@ -5,6 +5,9 @@
 
     RewriteEngine On
 
+    # Force /storage requests through Laravel (Hostinger symlink fix)
+    RewriteRule ^storage/(.*)$ index.php [L]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
