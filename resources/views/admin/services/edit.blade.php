@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-<form action="{{ route('admin.services.update', $service->id) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('admin.services.update', $service->slug) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     @include('admin.services.form', ['service' => $service])

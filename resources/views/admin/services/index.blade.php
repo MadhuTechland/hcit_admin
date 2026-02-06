@@ -77,16 +77,16 @@
                                     <td>{{ $item->order }}</td>
                                     <td>
                                         <div class="d-flex gap-2 justify-content-end">
-                                            <a href="{{ route('admin.services.sections.index', $item->id) }}"
+                                            <a href="{{ route('admin.services.sections.index', $item->slug) }}"
                                                class="btn btn-sm btn-soft-info" title="Manage Sections">
                                                 <i class="bi bi-layout-text-sidebar"></i>
                                             </a>
-                                            <a href="{{ route('admin.services.edit', $item->id) }}"
+                                            <a href="{{ route('admin.services.edit', $item->slug) }}"
                                                class="btn btn-sm btn-soft-primary" title="Edit">
                                                 <i class="bi bi-pencil"></i>
                                             </a>
                                             <button type="button" class="btn btn-sm btn-soft-danger" title="Delete"
-                                                    onclick="deleteService({{ $item->id }})">
+                                                    onclick="deleteService('{{ $item->slug }}')">
                                                 <i class="bi bi-trash"></i>
                                             </button>
                                         </div>
