@@ -38,6 +38,24 @@ Route::get('/test', function () {
     return 'Routing is working! Laravel server is running correctly.';
 });
 
+// Storage symlink route for shared hosting (Hostinger)
+Route::get('/storage-link', function () {
+    $target = storage_path('app/public');
+    $link = public_path('storage');
+
+    if (file_exists($link)) {
+        return 'Storage link already exists! Path: ' . $link . ' → ' . readlink($link);
+    }
+
+    try {
+        symlink($target, $link);
+        return 'Storage link created successfully! ' . $link . ' → ' . $target;
+    } catch (\Exception $e) {
+        // Fallback: copy files if symlink fails
+        return 'Symlink failed: ' . $e->getMessage() . '. Please create the link manually via SSH: ln -s ' . $target . ' ' . $link;
+    }
+});
+
 // ============================================
 // ADMIN AUTHENTICATION ROUTES (No middleware)
 // ============================================
