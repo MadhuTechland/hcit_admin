@@ -102,7 +102,7 @@
 
                 @if($aboutPage && $aboutPage->image)
                     <div class="mb-3">
-                        <img src="{{ asset('storage/' . $aboutPage->image) }}" alt="Current image"
+                        <img src="{{ asset('uploads/' . $aboutPage->image) }}" alt="Current image"
                              class="img-fluid rounded" style="max-height: 200px;">
                     </div>
                 @endif
@@ -126,7 +126,7 @@
 
                 @if($aboutPage && $aboutPage->banner_image)
                     <div class="mb-3">
-                        <img src="{{ asset('storage/' . $aboutPage->banner_image) }}" alt="Current banner"
+                        <img src="{{ asset('uploads/' . $aboutPage->banner_image) }}" alt="Current banner"
                              class="img-fluid rounded" style="max-height: 200px;">
                     </div>
                 @endif

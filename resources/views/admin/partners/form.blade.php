@@ -87,7 +87,7 @@
 
                 @if($partner && $partner->logo)
                     <div class="text-center p-3 bg-light rounded">
-                        <img src="{{ asset('storage/' . $partner->logo) }}" alt="Current logo"
+                        <img src="{{ asset('uploads/' . $partner->logo) }}" alt="Current logo"
                              class="img-fluid" style="max-width: 200px; max-height: 100px;">
                     </div>
                 @endif

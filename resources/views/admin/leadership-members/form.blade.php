@@ -104,7 +104,7 @@
 
                 @if($leadershipMember && $leadershipMember->image)
                     <div class="text-center">
-                        <img src="{{ asset('storage/' . $leadershipMember->image) }}" alt="Current photo"
+                        <img src="{{ asset('uploads/' . $leadershipMember->image) }}" alt="Current photo"
                              class="img-fluid rounded-circle" style="max-width: 200px; max-height: 200px;">
                     </div>
                 @endif

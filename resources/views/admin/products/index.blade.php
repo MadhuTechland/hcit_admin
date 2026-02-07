@@ -56,7 +56,7 @@
                                     <td>
                                         <div class="d-flex align-items-center">
                                             @if($item->image)
-                                                <img src="{{ asset('storage/' . $item->image) }}" alt="" class="avatar-sm rounded me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                                                <img src="{{ asset('uploads/' . $item->image) }}" alt="" class="avatar-sm rounded me-3" style="width: 50px; height: 50px; object-fit: cover;">
                                             @endif
                                             <div>
                                                 <h6 class="mb-0">{{ Str::limit($item->title, 50) }}</h6>

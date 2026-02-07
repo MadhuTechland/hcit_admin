@@ -56,7 +56,7 @@
                                     <td>
                                         <div class="d-flex align-items-center">
                                             @if($item->client_image)
-                                                <img src="{{ asset('storage/' . $item->client_image) }}" alt="" class="avatar-sm rounded-circle me-3" style="width: 100px; height: 80px; object-fit: cover;">
+                                                <img src="{{ asset('uploads/' . $item->client_image) }}" alt="" class="avatar-sm rounded-circle me-3" style="width: 100px; height: 80px; object-fit: cover;">
                                             @else
                                                 <div class="avatar-sm rounded-circle bg-primary me-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
                                                     <span class="text-white fw-bold">{{ strtoupper(substr($item->client_name ?? 'U', 0, 1)) }}</span>

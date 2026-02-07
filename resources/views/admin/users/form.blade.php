@@ -73,7 +73,7 @@
                     <div class="mb-3">
                         <label class="form-label">Current Avatar</label>
                         <div>
-                            <img src="{{ asset('storage/' . $user->avatar) }}" alt="" class="rounded" style="max-height: 100px;">
+                            <img src="{{ asset('uploads/' . $user->avatar) }}" alt="" class="rounded" style="max-height: 100px;">
                         </div>
                     </div>
                 @endif

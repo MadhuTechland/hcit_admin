@@ -109,7 +109,7 @@
                             id="userMenuDropdown" data-bs-toggle="dropdown" aria-expanded="false"
                             style="background: linear-gradient(135deg, var(--elegant-gray-100) 0%, var(--elegant-white) 100%);">
                         @if(Auth::check() && Auth::user()->avatar)
-                            <img src="{{ asset('storage/' . Auth::user()->avatar) }}" alt=""
+                            <img src="{{ asset('uploads/' . Auth::user()->avatar) }}" alt=""
                                  class="rounded-circle" style="width: 32px; height: 32px; object-fit: cover;">
                         @else
                             <div class="rounded-circle d-flex align-items-center justify-content-center"
@@ -135,7 +135,7 @@
                         <li class="px-3 py-3 border-bottom">
                             <div class="d-flex align-items-center">
                                 @if(Auth::check() && Auth::user()->avatar)
-                                    <img src="{{ asset('storage/' . Auth::user()->avatar) }}" alt=""
+                                    <img src="{{ asset('uploads/' . Auth::user()->avatar) }}" alt=""
                                          class="rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;">
                                 @else
                                     <div class="rounded-circle d-flex align-items-center justify-content-center me-3"

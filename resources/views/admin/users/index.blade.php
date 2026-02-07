@@ -68,7 +68,7 @@
                         <tr>
                             <td>
                                 @if($user->avatar)
-                                    <img src="{{ asset('storage/' . $user->avatar) }}" alt=""
+                                    <img src="{{ asset('uploads/' . $user->avatar) }}" alt=""
                                          class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
                                 @else
                                     <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center"

@@ -91,7 +91,7 @@
                     @enderror
                     @if(isset($section) && $section->image)
                         <div class="mt-2">
-                            <img src="{{ asset('storage/' . $section->image) }}" alt="Current image" class="img-thumbnail" style="max-width: 200px;">
+                            <img src="{{ asset('uploads/' . $section->image) }}" alt="Current image" class="img-thumbnail" style="max-width: 200px;">
                         </div>
                     @endif
                 </div>
@@ -104,7 +104,7 @@
                     @enderror
                     @if(isset($section) && $section->background_image)
                         <div class="mt-2">
-                            <img src="{{ asset('storage/' . $section->background_image) }}" alt="Current background" class="img-thumbnail" style="max-width: 200px;">
+                            <img src="{{ asset('uploads/' . $section->background_image) }}" alt="Current background" class="img-thumbnail" style="max-width: 200px;">
                         </div>
                     @endif
                 </div>

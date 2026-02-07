@@ -183,7 +183,7 @@
                 @if(isset($service) && $service->image)
                     <div class="mb-2">
                         <label class="form-label">Current Image:</label>
-                        <img src="{{ asset('storage/' . $service->image) }}" alt="Current Image"
+                        <img src="{{ asset('uploads/' . $service->image) }}" alt="Current Image"
                              class="img-fluid rounded image-preview">
                     </div>
                 @endif
@@ -214,7 +214,7 @@
                 @if(isset($service) && $service->detail_image)
                     <div class="mb-2">
                         <label class="form-label">Current Detail Image:</label>
-                        <img src="{{ asset('storage/' . $service->detail_image) }}" alt="Current Detail Image"
+                        <img src="{{ asset('uploads/' . $service->detail_image) }}" alt="Current Detail Image"
                              class="img-fluid rounded image-preview">
                     </div>
                 @endif
@@ -245,7 +245,7 @@
                 @if(isset($service) && $service->shape_image)
                     <div class="mb-2">
                         <label class="form-label">Current Shape Image:</label>
-                        <img src="{{ asset('storage/' . $service->shape_image) }}" alt="Current Shape Image"
+                        <img src="{{ asset('uploads/' . $service->shape_image) }}" alt="Current Shape Image"
                              class="img-fluid rounded image-preview">
                     </div>
                 @endif

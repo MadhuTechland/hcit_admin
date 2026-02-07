@@ -147,7 +147,7 @@
                 @if($news && $news->image)
                     <div class="mb-2">
                         <label class="form-label">Current Image:</label>
-                        <img src="{{ asset('storage/' . $news->image) }}" alt="Current Image"
+                        <img src="{{ asset('uploads/' . $news->image) }}" alt="Current Image"
                              class="img-fluid rounded image-preview">
                     </div>
                 @endif

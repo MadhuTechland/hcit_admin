@@ -182,7 +182,7 @@
                 @if(isset($industry) && $industry->image)
                     <div class="mb-2">
                         <label class="form-label">Current Image:</label>
-                        <img src="{{ asset('storage/' . $industry->image) }}" alt="Current Image"
+                        <img src="{{ asset('uploads/' . $industry->image) }}" alt="Current Image"
                              class="img-fluid rounded image-preview">
                     </div>
                 @endif
@@ -212,7 +212,7 @@
                 @if(isset($industry) && $industry->detail_image)
                     <div class="mb-2">
                         <label class="form-label">Current Detail Image:</label>
-                        <img src="{{ asset('storage/' . $industry->detail_image) }}" alt="Current Detail Image"
+                        <img src="{{ asset('uploads/' . $industry->detail_image) }}" alt="Current Detail Image"
                              class="img-fluid rounded image-preview">
                     </div>
                 @endif

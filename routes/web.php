@@ -39,26 +39,8 @@ Route::get('/test', function () {
     return 'Routing is working! Laravel server is running correctly.';
 });
 
-// Storage symlink route for shared hosting (Hostinger)
-Route::get('/storage-link', function () {
-    $target = storage_path('app/public');
-    $link = public_path('storage');
-
-    if (file_exists($link)) {
-        return 'Storage link already exists! Path: ' . $link . ' → ' . readlink($link);
-    }
-
-    try {
-        symlink($target, $link);
-        return 'Storage link created successfully! ' . $link . ' → ' . $target;
-    } catch (\Exception $e) {
-        // Fallback: copy files if symlink fails
-        return 'Symlink failed: ' . $e->getMessage() . '. Please create the link manually via SSH: ln -s ' . $target . ' ' . $link;
-    }
-});
-
-// Serve storage files through PHP (Hostinger symlink workaround)
-Route::get('/storage/{path}', function (string $path) {
+// Serve uploaded files through PHP (fallback if symlink breaks)
+Route::get('/uploads/{path}', function (string $path) {
     $filePath = storage_path('app/public/' . $path);
 
     if (!file_exists($filePath)) {

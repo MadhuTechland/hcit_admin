@@ -25,7 +25,7 @@
                         <div class="col-md-4 text-center mb-4">
                             <div class="mb-3">
                                 @if($user->avatar)
-                                    <img src="{{ asset('storage/' . $user->avatar) }}" alt="{{ $user->name }}"
+                                    <img src="{{ asset('uploads/' . $user->avatar) }}" alt="{{ $user->name }}"
                                          class="rounded-circle" id="avatar-preview"
                                          style="width: 150px; height: 150px; object-fit: cover;">
                                 @else

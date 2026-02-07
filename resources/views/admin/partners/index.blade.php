@@ -63,7 +63,7 @@
                                     <td>
                                         <div class="d-flex align-items-center">
                                             @if($partner->logo)
-                                                <img src="{{ asset('storage/' . $partner->logo) }}" alt="" class="avatar-sm rounded me-3" style="width: 50px; height: 50px; object-fit: contain;">
+                                                <img src="{{ asset('uploads/' . $partner->logo) }}" alt="" class="avatar-sm rounded me-3" style="width: 50px; height: 50px; object-fit: contain;">
                                             @endif
                                             <div>
                                                 <h6 class="mb-0">{{ $partner->name }}</h6>

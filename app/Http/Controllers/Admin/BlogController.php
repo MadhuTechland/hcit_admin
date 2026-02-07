@@ -64,7 +64,7 @@ class BlogController extends Controller
         // Handle image upload if provided
         if ($request->hasFile('featured_image_upload')) {
             $path = $request->file('featured_image_upload')->store('blog-images', 'public');
-            $validated['featured_image'] = '/storage/' . $path;
+            $validated['featured_image'] = '/uploads/' . $path;
         }
 
         // Create the blog
@@ -119,7 +119,7 @@ class BlogController extends Controller
         // Handle image upload if provided
         if ($request->hasFile('featured_image_upload')) {
             $path = $request->file('featured_image_upload')->store('blog-images', 'public');
-            $validated['featured_image'] = '/storage/' . $path;
+            $validated['featured_image'] = '/uploads/' . $path;
         }
 
         // Update the blog

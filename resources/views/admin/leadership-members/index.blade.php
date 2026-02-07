@@ -56,7 +56,7 @@
                                     <td>
                                         <div class="d-flex align-items-center">
                                             @if($member->image)
-                                                <img src="{{ asset('storage/' . $member->image) }}" alt="" class="avatar-sm rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                                                <img src="{{ asset('uploads/' . $member->image) }}" alt="" class="avatar-sm rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;">
                                             @endif
                                             <div>
                                                 <h6 class="mb-0">{{ $member->name }}</h6>

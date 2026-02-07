@@ -83,7 +83,7 @@
 
                 @if($caseStudy && $caseStudy->image)
                     <div class="mb-3">
-                        <img src="{{ asset('storage/' . $caseStudy->image) }}" alt="Current image"
+                        <img src="{{ asset('uploads/' . $caseStudy->image) }}" alt="Current image"
                              class="img-fluid rounded" style="max-height: 200px;">
                     </div>
                 @endif

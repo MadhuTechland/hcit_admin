@@ -309,7 +309,7 @@
 
                                             @if($currentImage)
                                                 <div class="image-preview-container" id="{{ $fieldKey }}_preview_container">
-                                                    <img src="{{ asset('storage/' . $currentImage) }}"
+                                                    <img src="{{ asset('uploads/' . $currentImage) }}"
                                                          alt="{{ $field['label'] }}"
                                                          class="image-preview"
                                                          id="{{ $fieldKey }}_preview">

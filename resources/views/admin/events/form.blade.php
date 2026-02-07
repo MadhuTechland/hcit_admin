@@ -36,7 +36,7 @@
                     <input type="file" class="form-control" name="image" accept="image/*">
                 </div>
                 @if($event && $event->image)
-                <img src="{{ asset('storage/' . $event->image) }}" class="img-fluid rounded" style="max-height: 200px;">
+                <img src="{{ asset('uploads/' . $event->image) }}" class="img-fluid rounded" style="max-height: 200px;">
                 @endif
             </div>
         </div>

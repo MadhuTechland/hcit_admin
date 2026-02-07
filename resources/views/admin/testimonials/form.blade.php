@@ -76,7 +76,7 @@
 
                 @if($testimonial && $testimonial->client_image)
                     <div class="text-center">
-                        <img src="{{ asset('storage/' . $testimonial->client_image) }}" alt="Client photo"
+                        <img src="{{ asset('uploads/' . $testimonial->client_image) }}" alt="Client photo"
                              class="img-fluid rounded-circle" style="max-width: 150px; max-height: 150px;">
                     </div>
                 @endif
