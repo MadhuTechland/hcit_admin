@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-<form action="{{ route('admin.products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('admin.products.update', $product->slug) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     @include('admin.products.form', ['product' => $product])

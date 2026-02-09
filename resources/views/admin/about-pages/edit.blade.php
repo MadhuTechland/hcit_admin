@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-<form action="{{ route('admin.about-pages.update', $aboutPage->id) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('admin.about-pages.update', $aboutPage->slug) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     @include('admin.about-pages.form', ['aboutPage' => $aboutPage])

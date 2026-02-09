@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-<form action="{{ route('admin.blogs.update', $blog->id) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('admin.blogs.update', $blog->slug) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     @include('admin.blogs.form', ['blog' => $blog, 'categories' => $categories, 'tags' => $tags])

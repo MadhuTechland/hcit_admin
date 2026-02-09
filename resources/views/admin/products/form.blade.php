@@ -2,14 +2,14 @@
     <div class="col-lg-8">
         <div class="card">
             <div class="card-header">
-                <h5 class="card-title mb-0">Service Details</h5>
+                <h5 class="card-title mb-0">Product Details</h5>
             </div>
             <div class="card-body">
                 <!-- Title -->
                 <div class="mb-3">
                     <label for="title" class="form-label">Title <span class="text-danger">*</span></label>
                     <input type="text" class="form-control @error('title') is-invalid @enderror"
-                           id="title" name="title" value="{{ old('title', $service->title ?? '') }}"
+                           id="title" name="title" value="{{ old('title', $product->title ?? '') }}"
                            placeholder="Enter service title" required>
                     @error('title')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -20,7 +20,7 @@
                 <div class="mb-3">
                     <label for="slug" class="form-label">Slug</label>
                     <input type="text" class="form-control @error('slug') is-invalid @enderror"
-                           id="slug" name="slug" value="{{ old('slug', $service->slug ?? '') }}"
+                           id="slug" name="slug" value="{{ old('slug', $product->slug ?? '') }}"
                            placeholder="auto-generated-from-title">
                     <small class="form-text text-muted">URL-friendly version. Leave blank to auto-generate.</small>
                     @error('slug')
@@ -33,7 +33,7 @@
                     <label for="description" class="form-label">Short Description (Navigation Menu) <span class="text-danger">*</span></label>
                     <textarea class="form-control @error('description') is-invalid @enderror"
                               id="description" name="description" rows="2"
-                              placeholder="Brief description shown in navigation dropdown" required>{{ old('description', $service->description ?? '') }}</textarea>
+                              placeholder="Brief description shown in navigation dropdown" required>{{ old('description', $product->description ?? '') }}</textarea>
                     <small class="form-text text-muted">Shown in navigation menu dropdown</small>
                     @error('description')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -44,7 +44,7 @@
                 <div class="mb-3">
                     <label for="tags" class="form-label">Tags</label>
                     <input type="text" class="form-control @error('tags') is-invalid @enderror"
-                           id="tags" name="tags" value="{{ old('tags', $service->tags ?? '') }}"
+                           id="tags" name="tags" value="{{ old('tags', $product->tags ?? '') }}"
                            placeholder="e.g., Cloud, Digital, Commerce (comma-separated)">
                     <small class="form-text text-muted">Comma-separated tags</small>
                     @error('tags')
@@ -65,7 +65,7 @@
                     <label for="breadcrumb_title" class="form-label">Breadcrumb Title</label>
                     <input type="text" class="form-control @error('breadcrumb_title') is-invalid @enderror"
                            id="breadcrumb_title" name="breadcrumb_title"
-                           value="{{ old('breadcrumb_title', $service->breadcrumb_title ?? '') }}"
+                           value="{{ old('breadcrumb_title', $product->breadcrumb_title ?? '') }}"
                            placeholder="e.g., Digital Commerce">
                     <small class="form-text text-muted">Title shown in breadcrumb navigation</small>
                     @error('breadcrumb_title')
@@ -77,7 +77,7 @@
                 <div class="mb-3">
                     <label for="subtitle" class="form-label">Subtitle</label>
                     <input type="text" class="form-control @error('subtitle') is-invalid @enderror"
-                           id="subtitle" name="subtitle" value="{{ old('subtitle', $service->subtitle ?? '') }}"
+                           id="subtitle" name="subtitle" value="{{ old('subtitle', $product->subtitle ?? '') }}"
                            placeholder="e.g., E-Commerce Solutions">
                     <small class="form-text text-muted">Small text above main title on detail page</small>
                     @error('subtitle')
@@ -90,7 +90,7 @@
                     <label for="detail_title" class="form-label">Detail Page Title</label>
                     <textarea class="form-control @error('detail_title') is-invalid @enderror"
                               id="detail_title" name="detail_title" rows="2"
-                              placeholder="Main heading on detail page">{{ old('detail_title', $service->detail_title ?? '') }}</textarea>
+                              placeholder="Main heading on detail page">{{ old('detail_title', $product->detail_title ?? '') }}</textarea>
                     @error('detail_title')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -101,7 +101,7 @@
                     <label for="detail_description" class="form-label">Detail Page Description</label>
                     <textarea class="form-control @error('detail_description') is-invalid @enderror"
                               id="detail_description" name="detail_description" rows="3"
-                              placeholder="Paragraph below the main title">{{ old('detail_description', $service->detail_description ?? '') }}</textarea>
+                              placeholder="Paragraph below the main title">{{ old('detail_description', $product->detail_description ?? '') }}</textarea>
                     @error('detail_description')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -112,7 +112,7 @@
                     <label for="content" class="form-label">Full Content (HTML)</label>
                     <textarea class="form-control @error('content') is-invalid @enderror"
                               id="content" name="content" rows="12"
-                              placeholder="Full HTML content for the detail page...">{{ old('content', $service->content ?? '') }}</textarea>
+                              placeholder="Full HTML content for the detail page...">{{ old('content', $product->content ?? '') }}</textarea>
                     <small class="form-text text-muted">You can use HTML for formatting</small>
                     @error('content')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -133,7 +133,7 @@
                 <div class="mb-3">
                     <div class="form-check form-switch">
                         <input class="form-check-input" type="checkbox" id="is_active" name="is_active"
-                               {{ old('is_active', $service->is_active ?? true) ? 'checked' : '' }}>
+                               {{ old('is_active', $product->is_active ?? true) ? 'checked' : '' }}>
                         <label class="form-check-label" for="is_active">
                             Active (Show on website)
                         </label>
@@ -144,7 +144,7 @@
                 <div class="mb-3">
                     <label for="order" class="form-label">Display Order</label>
                     <input type="number" class="form-control @error('order') is-invalid @enderror"
-                           id="order" name="order" value="{{ old('order', $service->order ?? 0) }}"
+                           id="order" name="order" value="{{ old('order', $product->order ?? 0) }}"
                            placeholder="0">
                     <small class="form-text text-muted">Lower numbers appear first</small>
                     @error('order')
@@ -155,9 +155,9 @@
                 <!-- Action Buttons -->
                 <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-primary">
-                        <i class="bi bi-save me-1"></i> {{ isset($service) ? 'Update Service' : 'Create Service' }}
+                        <i class="bi bi-save me-1"></i> {{ isset($product) ? 'Update Product' : 'Create Product' }}
                     </button>
-                    <a href="{{ route('admin.services.index') }}" class="btn btn-outline-secondary">
+                    <a href="{{ route('admin.products.index') }}" class="btn btn-outline-secondary">
                         <i class="bi bi-x-lg me-1"></i> Cancel
                     </a>
                 </div>
@@ -167,7 +167,7 @@
         <!-- Main Image Upload (for listing/navigation) -->
         <div class="card mt-3">
             <div class="card-header">
-                <h5 class="card-title mb-0">Service Image (Navigation)</h5>
+                <h5 class="card-title mb-0">Product Image (Navigation)</h5>
             </div>
             <div class="card-body">
                 <div class="mb-3">
@@ -179,10 +179,10 @@
                     @enderror
                 </div>
 
-                @if(isset($service) && $service->image)
+                @if(isset($product) && $product->image)
                     <div class="mb-2">
                         <label class="form-label">Current Image:</label>
-                        <img src="{{ asset('uploads/' . $service->image) }}" alt="Current Image"
+                        <img src="{{ asset('uploads/' . $product->image) }}" alt="Current Image"
                              class="img-fluid rounded image-preview">
                     </div>
                 @endif
@@ -209,10 +209,10 @@
                     @enderror
                 </div>
 
-                @if(isset($service) && $service->detail_image)
+                @if(isset($product) && $product->detail_image)
                     <div class="mb-2">
                         <label class="form-label">Current Detail Image:</label>
-                        <img src="{{ asset('uploads/' . $service->detail_image) }}" alt="Current Detail Image"
+                        <img src="{{ asset('uploads/' . $product->detail_image) }}" alt="Current Detail Image"
                              class="img-fluid rounded image-preview">
                     </div>
                 @endif
@@ -239,10 +239,10 @@
                     @enderror
                 </div>
 
-                @if(isset($service) && $service->shape_image)
+                @if(isset($product) && $product->shape_image)
                     <div class="mb-2">
                         <label class="form-label">Current Shape Image:</label>
-                        <img src="{{ asset('uploads/' . $service->shape_image) }}" alt="Current Shape Image"
+                        <img src="{{ asset('uploads/' . $product->shape_image) }}" alt="Current Shape Image"
                              class="img-fluid rounded image-preview">
                     </div>
                 @endif

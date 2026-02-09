@@ -77,12 +77,12 @@
                                     <td>{{ $page->order }}</td>
                                     <td>
                                         <div class="d-flex gap-2 justify-content-end">
-                                            <a href="{{ route('admin.about-pages.edit', $page->id) }}"
+                                            <a href="{{ route('admin.about-pages.edit', $page->slug) }}"
                                                class="btn btn-sm btn-soft-primary" title="Edit">
                                                 <i class="bi bi-pencil"></i>
                                             </a>
                                             <button type="button" class="btn btn-sm btn-soft-danger" title="Delete"
-                                                    onclick="deletePage({{ $page->id }})">
+                                                    onclick="deletePage('{{ $page->slug }}')">
                                                 <i class="bi bi-trash"></i>
                                             </button>
                                         </div>
@@ -134,10 +134,10 @@
 
 @push('scripts')
 <script>
-    function deletePage(id) {
+    function deletePage(slug) {
         const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
         const deleteForm = document.getElementById('deleteForm');
-        deleteForm.action = `/admin/about-pages/${id}`;
+        deleteForm.action = `/admin/about-pages/${slug}`;
         deleteModal.show();
     }
 

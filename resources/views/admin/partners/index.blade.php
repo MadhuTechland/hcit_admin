@@ -104,12 +104,12 @@
                                     <td>{{ $partner->order }}</td>
                                     <td>
                                         <div class="d-flex gap-2 justify-content-end">
-                                            <a href="{{ route('admin.partners.edit', $partner->id) }}"
+                                            <a href="{{ route('admin.partners.edit', $partner->slug) }}"
                                                class="btn btn-sm btn-soft-primary" title="Edit">
                                                 <i class="bi bi-pencil"></i>
                                             </a>
                                             <button type="button" class="btn btn-sm btn-soft-danger" title="Delete"
-                                                    onclick="deletePartner({{ $partner->id }})">
+                                                    onclick="deletePartner('{{ $partner->slug }}')">
                                                 <i class="bi bi-trash"></i>
                                             </button>
                                         </div>
@@ -161,10 +161,10 @@
 
 @push('scripts')
 <script>
-    function deletePartner(id) {
+    function deletePartner(slug) {
         const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
         const deleteForm = document.getElementById('deleteForm');
-        deleteForm.action = `/admin/partners/${id}`;
+        deleteForm.action = `/admin/partners/${slug}`;
         deleteModal.show();
     }
 

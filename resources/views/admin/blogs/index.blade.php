@@ -110,12 +110,12 @@
                                                class="btn btn-sm btn-soft-info" title="View">
                                                 <i class="bi bi-eye"></i>
                                             </a>
-                                            <a href="{{ route('admin.blogs.edit', $blog->id) }}"
+                                            <a href="{{ route('admin.blogs.edit', $blog->slug) }}"
                                                class="btn btn-sm btn-soft-primary" title="Edit">
                                                 <i class="bi bi-pencil"></i>
                                             </a>
                                             <button type="button" class="btn btn-sm btn-soft-danger" title="Delete"
-                                                    onclick="deleteBlog({{ $blog->id }})">
+                                                    onclick="deleteBlog('{{ $blog->slug }}')">
                                                 <i class="bi bi-trash"></i>
                                             </button>
                                         </div>
@@ -167,10 +167,10 @@
 
 @push('scripts')
 <script>
-    function deleteBlog(id) {
+    function deleteBlog(slug) {
         const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
         const deleteForm = document.getElementById('deleteForm');
-        deleteForm.action = `/admin/blogs/${id}`;
+        deleteForm.action = `/admin/blogs/${slug}`;
         deleteModal.show();
     }
 
